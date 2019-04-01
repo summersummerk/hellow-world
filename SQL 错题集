@@ -4,3 +4,4 @@ SELECT winner, subject
 FROM nobel
 WHERE yr=1984
 ORDER BY subject IN ('Physics','Chemistry'), subject, winner
+#注释一下，SQL中默认文本大于数字所以此处降序排列是文本（Z-A），数字
