@@ -1,0 +1,60 @@
+#打开文件
+a = open('C:/Users/Reytine/Desktop/商铺数据.csv','r',encoding='utf-8')
+
+
+#设计公式
+#清洗评论数
+def clcmc(s):
+  if '条' in s:
+    return(int(s.split(' ')[0]))
+  else:
+    return('NA')
+#清洗价格
+def clpri(s):
+  if '￥' in s:
+    return(int(s.split('￥')[-1]))
+  else:
+    return('NA')
+#清洗评论
+  def clcom(s):
+    if len(s) ==3:
+      qua = float(s[0][2:])
+      envi = float(s[1][2:])
+      serv = float(s[2][2:])
+      comment=[qua,envi,serv]
+    else:
+      return('NA')
+  
+  for i in a.readlines():
+    row=i.split(',')
+    classify=row[0]
+    name = row[1]
+    com_count=clearcm(row[2])
+    star=row[3]
+    price=clearpr(row[4])
+    address=row[5]
+    quality=clearcmde(row[-1].split('                                '))[0]
+    envi=clearcmde(row[-1].split('                                '))[1]
+    service=clearcmde(row[-1].split('                                '))[-1]
+
+    if 'NA' not in [com_count,price,quality]:
+        data_lst2=[['classify',classify],
+                   ['name',name],
+                   ['com_count',com_count],
+                   ['star',star],
+                   ['price',price],
+                   ['address',address],
+                   ['quality',quality],
+                   ['envi',envi],
+                   ['service',service]
+        ]
+        datalist.append(dict(data_lst2))
+        n +=1
+        print('成功读取%i条数据' % n)
+        print(dict(data_lst2))
+    else:
+        continue
+        
+print(datalist)
+print('完成')
+print('总共加载%i条数据' % n)
