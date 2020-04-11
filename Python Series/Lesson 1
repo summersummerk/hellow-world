@@ -1,0 +1,28 @@
+Lesson 1 对列表的操作
+
+1.1 对元素的修改
+#.title()大写首字母，
+#修改列表>>>索引后直接修改即可
+#增加列表元素>>>append，或者直接用索引添加,或者用循环添加
+#删除列表元素，
+  #1.不重复利用del lst[x]
+  #2.重复利用a=lst.pop[x]元素从列表中拿出
+  #3.根据值删除，lst.remove('value')
+
+1.2 对列表的排序
+cars.sort()
+cars.sort(reverse=True)
+#如果不改变列表的排序，临时使用可用sorted(cars,reverse=True#可选)
+#列表逆向cars.reverse()
+
+1.3 列表的循环
+略
+
+1.4 对列表的简单统计计算
+min(lst), max(lst), sum(lst), len(lst)
+
+1.5 列表的切片
+略
+
+1.6 元组的重新定义
+#元组的值无法直接修改，只能重新定义
