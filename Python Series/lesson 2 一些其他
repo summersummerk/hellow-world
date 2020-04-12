@@ -1,0 +1,8 @@
+set(dic.values())会自动去重
+
+while True:
+    xxxx
+    if xxxx:
+      continue
+    some operation
+#这里的continue，如果满足上面的条件，就会进入下一次while循环，不满足就会进入some operation后再进入下一次循环
