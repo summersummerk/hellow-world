@@ -9,3 +9,21 @@ func_do(A=3,B=9)
 #######这里明确指出了对应关系#######
 #3.默认值：略，默认值也可以通过关键字实参做修改
 #4.将实参变成可选值
+
+
+#5.传递列表
+#5.1传递并修改列表
+    #传递并修改列表，可用while循环
+    def print_model(unprinted,printed):
+    printed=[]
+        while unprinted:
+            current=unprinted.pop()
+            printed=printed.append(current)
+        return printed
+   unprinted=[a,b,c]
+   print(print_model(unprinted))
+#5.2传递不修改列表，即在初始时候参数使用unprinted[:]
+
+#6.传递实参即func(*a),当我们输入参数时候，参数会构成一个元组！注意是元组。
+
+#7.传递实参，此实参的为任意数量，且为关键字实参，用两个**.
