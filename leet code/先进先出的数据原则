@@ -1,0 +1,55 @@
+#MyCircularQueue(k): 构造器，设置队列长度为 k 。
+#Front: 从队首获取元素。如果队列为空，返回 -1 。
+#Rear: 获取队尾元素。如果队列为空，返回 -1 。
+#enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真。
+#deQueue(): 从循环队列中删除一个元素。如果成功删除则返回真。
+#isEmpty(): 检查循环队列是否为空。
+#isFull(): 检查循环队列是否已满。
+-----------------------------
+#代码如下：
+class MyCircularQueue:
+
+    def __init__(self, k: int):
+        self.start=-1
+        self.end=-1
+        self.max_length=k
+        self.queue=[""]*k#创建空的列表
+    def enQueue(self,value: int):
+        if not self.isFull():
+            if self.start==-1:
+                self.start=0
+            self.end=(self.end+1) % self.max_length
+            self.queue[self.end]=value
+            return True
+        else:
+            return False
+    
+    def deQueue(self):
+        if not self.isEmpty():
+            if self.start==self.end:
+                self.start,self.end=-1
+            else:
+                self.start=(self.start+1)% self.max_length
+            return True
+        else:
+            return False
+    
+    def Front(self):
+        return -1 if self.isEmpty() else self.queue[self.start]
+    
+    def Rear(self):
+        return -1 if self.isEmpty() else self.queue[self.end]
+    
+    def isEmpty(self) -> bool:
+        """
+        Checks whether the circular queue is empty or not.
+        """
+        return self.start == -1 and self.end == -1
+        
+
+    def isFull(self) -> bool:
+        """
+        Checks whether the circular queue is full or not.
+        """
+        return (self.end+1) % self.max_length== self.start
+                
